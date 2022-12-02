@@ -1,17 +1,20 @@
-const randomNum = (min, max) => {
-    return Math.floor(Math.random() * (max - min) + min)
-};
-
 let arr = [];
-for (let i = 0; i < 40; i++){
-    arr.push(randomNum(1, 100));
+for (let i = 0; i < 5; i++){
+    let item = prompt("Type an element of array");
+    if (!isNaN(item)) {
+        item = Number(item);
+    }
+    arr.push(item);
 }
 
 console.log(arr);
 
-console.log(arr.sort((a, b) => { return a - b }));
+console.log(arr.sort((a, b) => {
+    if (a < b) return -1;
+    if (a > b) return 1;
+    return 0;
+}));
 
 
 arr.splice(1, 3);
 console.log(arr);
-
